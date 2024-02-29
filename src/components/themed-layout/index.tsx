@@ -7,8 +7,8 @@ import React from "react";
 const HeaderComponent = () => {
   return (
     <>
-      Test
-      <Header sticky={false} />
+      This is the Header Component
+      {/* <Header sticky={false} /> */}
     </>
   );
 };

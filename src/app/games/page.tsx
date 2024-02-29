@@ -1,7 +1,7 @@
 import React from "react";
 
 const LeaderBoardList = () => {
-  return <div>page</div>;
+  return <div>games page</div>;
 };
 
 export default LeaderBoardList;
