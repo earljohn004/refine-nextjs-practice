@@ -37,7 +37,7 @@ type AppProps = {
 const App = (props: React.PropsWithChildren<AppProps>) => {
   const { data, status } = useSession();
   const to = usePathname();
-  const testProvider = authProvider(to, data as Session);
+  const testProvider = authProvider(to as string, data as Session);
 
   if (status === "loading") {
     return <span>loading...</span>;
@@ -47,7 +47,6 @@ const App = (props: React.PropsWithChildren<AppProps>) => {
 
   return (
     <>
-      <GitHubBanner />
       <RefineKbarProvider>
         <AntdRegistry>
           <ColorModeContextProvider defaultMode={defaultMode}>
@@ -58,25 +57,44 @@ const App = (props: React.PropsWithChildren<AppProps>) => {
               authProvider={testProvider}
               resources={[
                 {
-                  name: "blog_posts",
-                  list: "/blog-posts",
-                  create: "/blog-posts/create",
-                  edit: "/blog-posts/edit/:id",
-                  show: "/blog-posts/show/:id",
-                  meta: {
-                    canDelete: true,
-                  },
+                  name: "leaderboards",
+                  list: "/leaderboards"
+
                 },
                 {
-                  name: "categories",
-                  list: "/categories",
-                  create: "/categories/create",
-                  edit: "/categories/edit/:id",
-                  show: "/categories/show/:id",
-                  meta: {
-                    canDelete: true,
-                  },
+                  name: "games",
+                  list: "/games"
+
                 },
+                {
+                  name: "groups",
+                  list: "/groups"
+
+                },
+                {
+                  name: "profile",
+                  list: "/profile",
+                },
+                // {
+                //   name: "blog_posts",
+                //   list: "/blog-posts",
+                //   create: "/blog-posts/create",
+                //   edit: "/blog-posts/edit/:id",
+                //   show: "/blog-posts/show/:id",
+                //   meta: {
+                //     canDelete: true,
+                //   },
+                // },
+                // {
+                //   name: "categories",
+                //   list: "/categories",
+                //   create: "/categories/create",
+                //   edit: "/categories/edit/:id",
+                //   show: "/categories/show/:id",
+                //   meta: {
+                //     canDelete: true,
+                //   },
+                // },
               ]}
               options={{
                 syncWithLocation: true,

@@ -4,8 +4,23 @@ import { Header } from "@components/header";
 import { ThemedLayoutV2 } from "@refinedev/antd";
 import React from "react";
 
+const HeaderComponent = () => {
+  return (
+    <>
+      Test
+      <Header sticky={false} />
+    </>
+  );
+};
+
 export const ThemedLayout = ({ children }: React.PropsWithChildren) => {
   return (
-    <ThemedLayoutV2 Header={() => <Header sticky />}>{children}</ThemedLayoutV2>
+    <ThemedLayoutV2
+      Footer={() => <>This is a footer</>}
+      Header={() => <HeaderComponent />}
+      Title={() => <>TITLE HERE</>}
+    >
+      {children}
+    </ThemedLayoutV2>
   );
 };
